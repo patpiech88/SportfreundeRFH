@@ -1,0 +1,31 @@
+h1{
+	text-align: center;
+	
+}
+
+div{
+	border-width: 1px;
+	border-style: solid;
+	border-color: silver;
+	background-color: 2EC1FF;
+}
+
+#menu{
+	float: left;
+	width: 10%;
+	background-color: 7DCDEF;
+	
+	
+}
+#hauptteil{
+	float: right;
+	text-align: center;
+	width: 89%;
+	background-color: BFE7F8;
+	
+}
+
+table{
+	text-align: right;
+	margin-left: 20px;
+}
