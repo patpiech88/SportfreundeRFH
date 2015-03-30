@@ -1,5 +1,6 @@
 ﻿<?php
-
+		require "functions.php";
+		
  ?>
 <html>
 	<head>
@@ -9,7 +10,7 @@
 	</head>
 <body>
 	<div>
-		<h1>Willkommen bei den Sportfreunden der RFH Köln!</h1>
+		<h1>Herzlich Willkommen bei den Sportfreunden der RFH Köln!</h1>
 	</div>
 	<div id="menu">
 		<table>
@@ -39,10 +40,22 @@
 		</table>
 	</div>
 	<div id="hauptteil">
-		
-		<label for="Neuer_Lauf"> Neuen Lauf eintragen </label>
-		<input type="text" name="Neuer_Lauf"/>
-		<input type="submit" name="save" value="Eintragen"/>
+		<h2>Neues Mitglied</h2>
+		<form action="index.php" method="post">
+			<label for="name"> Name</label>
+			<input type="text" name="name"/>
+			
+			<label for="vorname"> Vorname</label>
+			<input type="text" name="vorname"/>
+			
+			<label for="wohnort"> Wohnort</label>
+			<input type="text" name="wohnort"/>
+			
+			<label for="geburtstag"> Geburtstag</label>
+			<input type="text" name="geburtstag"/>
+			<?php set_newuser($_POST['name'], $_POST['vorname'], $_POST['wohnort'], $_POST['geburtstag']);?>
+			<input type="submit" name="save" value="Eintragen"/>
+		</form>
 	</div>
 </body>
 </html>
