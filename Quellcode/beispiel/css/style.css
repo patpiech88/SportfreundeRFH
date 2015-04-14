@@ -16,6 +16,10 @@ a{
 	text-decoration: underline;
 	
 }
+a:hover{
+	color:#24B20A;
+	text-decoration:none;
+}
 
 #wrapper {
 
