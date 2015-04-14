@@ -1,8 +1,10 @@
  
 body {
     font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    color:#333
+    font-size: 16px; 
+	color:white;
+	background-image: url(../img/bg.jpg);
+	background-size: 100%;
 }
 
 p {
@@ -10,32 +12,35 @@ p {
 }
 
 a{
-	color:#000000;
+	color:#FFFFFF;
 	text-decoration: underline;
 	
 }
 
 #wrapper {
+
     width: 100%;
     min-width: 800px;
     max-width: 2000px;
     margin: 0 auto;
+
 }
 
 #header {
     float: left;
 	text-align: center;
-    height: 100px;
+    height: 120px;
     width: 100%;
-    background: #FFFFFF;
+
 }
 
 #navigation {
+	font-size: 18px; 
     float: left;
 	text-align: right;
     height: 100px;
     width: 100%;
-    background: #757575;
+    text-align: center;
 }
 
 
@@ -45,21 +50,27 @@ a{
 }
 
 #content {
-    background: #C9C9C9;
-    margin-left: 150px;
+
+    background: rgba(0,0,0,0.5);
+    margin-left:auto;
+	margin-right:auto;
+	width:80%;
+	text-align:center;
 }
 
 #leftcolumn {
     float: left;
-    background: #BBBBBB;
+    background: rgba(0, 0, 0, 0.6);
     width: 150px;
     margin-left: -100%;
 }
 
 #footer {
+	margin-left:auto;
+	margin-right:auto;
     height: 40px;
-    width: 100%;
-    background: #757575;
+    width: 80%;
+    background: rgba(0, 0, 0, 0.6);
     clear: both;
 }
 #notes{
