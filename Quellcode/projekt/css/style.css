@@ -1,0 +1,90 @@
+ 
+body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 16px; 
+	color:white;
+	background-image: url(../img/bg.jpg);
+	background-size: 100%;
+}
+
+p {
+    padding: 10px;
+}
+
+a{
+	color:#FFFFFF;
+	text-decoration: underline;
+	
+}
+a:hover{
+	color:#24B20A;
+	text-decoration:none;
+}
+
+
+
+#wrapper {
+
+    width: 100%;
+    min-width: 800px;
+    max-width: 2000px;
+    margin: 0 auto;
+
+}
+
+#header {
+    float: left;
+	text-align: center;
+    height: 120px;
+    width: 100%;
+
+}
+
+#navigation {
+	font-size: 18px; 
+    float: left;
+	text-align: right;
+    height: 100px;
+    width: 100%;
+    text-align: center;
+}
+
+
+#contentliquid {
+    float: left;
+    width: 100%;
+}
+
+#content {
+
+    background: rgba(0,0,0,0.5);
+    margin-left:auto;
+	margin-right:auto;
+	width:80%;
+	text-align:center;
+}
+
+#leftcolumn {
+    float: left;
+    background: rgba(0, 0, 0, 0.6);
+    width: 150px;
+    margin-left: -100%;
+}
+
+#footer {
+	margin-left:auto;
+	margin-right:auto;
+    height: 40px;
+    width: 80%;
+    background: rgba(0, 0, 0, 0.6);
+    clear: both;
+}
+#notes{
+	width: 80%;
+	heihgt 80%;
+}
+
+
+.menuentry{
+	padding-right:15px;
+}

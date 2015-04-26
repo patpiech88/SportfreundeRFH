@@ -1,0 +1,13 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_METHOD} GET
+RewriteRule ^tracks$ webservice/RequestHandler.php?command=GetTracksCommand
+
+RewriteCond %{REQUEST_METHOD} GET
+RewriteRule ^tracks/(.+)$ webservice/RequestHandler.php?command=GetTrackCommand&id=$1
+
+RewriteCond %{REQUEST_METHOD} POST
+RewriteRule ^tracks$ webservice/RequestHandler.php?command=CreateTrackCommand
+
+RewriteCond %{REQUEST_METHOD} DELETE
+RewriteRule ^tracks/(.+)$ webservice/RequestHandler.php?command=DeleteTrackCommand&id=$1
