@@ -58,9 +58,19 @@
 			
 		}
 	
-		public function updateTrack(){
+		public function updateTrack($track){
 			
-			
+				$verbindung = new mysqli("localhost", "root", "", "sportfreunde");
+				$verbindung->set_charset("utf8");
+				$sql_statement = "UPDATE tracks SET ".
+								"name = '$track->name', ".
+								"distance = '$track->distance', ".
+								"location = '$track->location', ".
+								"type = '$track->type', ".
+								"difficulty = '$track->difficulty', ".
+								"WHERE trackid = $track->trackid";
+				$verbindung->query($sql_statement);
+				$verbindung->close();
 		}
 	
 	}

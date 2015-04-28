@@ -11,3 +11,6 @@ RewriteRule ^tracks$ webservice/RequestHandler.php?command=CreateTrackCommand
 
 RewriteCond %{REQUEST_METHOD} DELETE
 RewriteRule ^tracks/(.+)$ webservice/RequestHandler.php?command=DeleteTrackCommand&id=$1
+
+RewriteCond %{REQUEST_METHOD} PUT
+RewriteRule ^tracks/(.+)$ webservice/RequestHandler.php?command=UpdateTrackCommand&id=$1
