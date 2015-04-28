@@ -3,7 +3,7 @@
 		
 		public function readTrack($id){
 			
-			$verbindung = new mysqli("localhost", "root" , "", "sportfreunde");
+			$verbindung = new mysqli("localhost", "root", "", "sportfreunde");
 			$verbindung->set_charset("utf8");
 			$sql_statement = "SELECT name, distance, location, type, difficulty, trackid FROM tracks WHERE trackid = $id";
 			$result_set = $verbindung->query($sql_statement);
@@ -13,7 +13,7 @@
 		}
 		
 		public function readTracks(){
-			$verbindung = new mysqli("localhost", "root" , "", "sportfreunde");
+			$verbindung = new mysqli("localhost", "root", "", "sportfreunde");
 			if ($verbindung->connect_error != NULL){
 					return self::ERROR;
 				}
@@ -67,7 +67,7 @@
 								"distance = '$track->distance', ".
 								"location = '$track->location', ".
 								"type = '$track->type', ".
-								"difficulty = '$track->difficulty', ".
+								"difficulty = '$track->difficulty' ".
 								"WHERE trackid = $track->trackid";
 				$verbindung->query($sql_statement);
 				$verbindung->close();
