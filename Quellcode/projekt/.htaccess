@@ -14,3 +14,4 @@ RewriteRule ^tracks/(.+)$ webservice/RequestHandler.php?command=DeleteTrackComma
 
 RewriteCond %{REQUEST_METHOD} PUT
 RewriteRule ^tracks/(.+)$ webservice/RequestHandler.php?command=UpdateTrackCommand&id=$1
+

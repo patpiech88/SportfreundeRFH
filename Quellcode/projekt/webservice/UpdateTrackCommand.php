@@ -6,6 +6,7 @@
 			
 			$track = new Track();
 			
+			$track->trackid = $request["id"];
 			$track->name = $request["name"];
 			$track->distance = $request["distance"];
 			$track->location = $request["location"];
@@ -14,6 +15,7 @@
 			
 			$track_service = new TracksService();
 			$result = $track_service->updateTrack($track);
+			return $result;
 		}
 	}
 
