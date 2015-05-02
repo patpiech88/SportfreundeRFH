@@ -2,7 +2,7 @@
 
 	class UpdateTrackCommand{
 		
-		public function execute($request){
+		public function execute($request, $request_headers){
 			
 			$track = new Track();
 			
@@ -12,9 +12,18 @@
 			$track->location = $request["location"];
 			$track->type = $request["type"];
 			$track->difficulty = $request["difficulty"];
+			$track->version = $request_headers["If-Match"];
 			
 			$track_service = new TracksService();
 			$result = $track_service->updateTrack($track);
+			if($result == TracksService::VERSION_OUTDATED){
+					http_response_code(412);
+					return;
+				}
+				if($result == TracksService::NOTFOUND){
+					http_response_code(404);
+					return;
+				}
 			return $result;
 		}
 	}
