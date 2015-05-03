@@ -7,11 +7,19 @@
 		const OK = "OK";
 		const VERSION_OUTDATED = "VERSION_OUTDATED";
 		
+		public function connect(){
+			@$link = new mysqli("localhost", "root", "", "sportfreunde");
+			if ($link->connect_error != NULL){
+					return self::ERROR;
+				}
+			$link->set_charset("utf8");
+			return $link;
+			}
 		
-		public function readTrack($id){
-			
-			@$verbindung = new mysqli("localhost", "root", "", "sportfreunde");
-			$verbindung->set_charset("utf8");
+		
+		
+		public function readTrack($id){		
+			$verbindung = $this->connect();
 			$sql_statement = "SELECT name, distance, location, type, difficulty, trackid FROM tracks WHERE trackid = $id";
 			$result_set = $verbindung->query($sql_statement);
 			$track = $result_set->fetch_object("Track");
@@ -22,12 +30,8 @@
 			return $track;
 		}
 		
-		public function readTracks(){
-			@$verbindung = new mysqli("localhost", "root", "", "sportfreunde");
-			if ($verbindung->connect_error != NULL){
-					return self::ERROR;
-				}
-			$verbindung->set_charset("utf8");
+		public function readTracks(){		
+			$verbindung = $this->connect();
 			$sql_statement = "SELECT name, distance, location, type, difficulty, trackid, version FROM tracks";
 			$result_set = $verbindung->query($sql_statement);
 			$tracks = array();
@@ -37,55 +41,46 @@
 					$track = $result_set->fetch_object("Track");
 				}
 			mysqli_close($verbindung);
-			return $tracks;
-			
-			
+			return $tracks;	
 		}
 		
 		public function createTrack($track){
-			
-			$result = new CreateTrackResult();
-				
-				
+			$result = new CreateTrackResult();	
 				if ($track->name == ""){
 					$result->status_code = self::INVALID_INPUT;
 					$result->validation_messages["name"] = "Bitte geben Sie einen Namen ein!";
 					return $result;
 				}
+			$verbindung = $this->connect();
+			$sql_statement = "INSERT INTO tracks SET ".
+							"name = '$track->name', ".
+							"distance = '$track->distance', ".
+							"location = '$track->location', ".
+							"type = '$track->type', ".
+							"difficulty = '$track->difficulty', ".
+							"version = 1";
 			
-			$verbindung = new mysqli("localhost", "root", "", "sportfreunde");
-				$verbindung->set_charset("utf8");
-				$sql_statement = "INSERT INTO tracks SET ".
-								"name = '$track->name', ".
-								"distance = '$track->distance', ".
-								"location = '$track->location', ".
-								"type = '$track->type', ".
-								"difficulty = '$track->difficulty', ".
-								"version = 1";
-				$verbindung->query($sql_statement);
-				$id = $verbindung->insert_id;
-				$verbindung->close();
-				$result->status_code = self::OK;
-				$result->id = $id;
-				return $result;
+			$verbindung->query($sql_statement);
+			$id = $verbindung->insert_id;
+			
+			$verbindung->close();
+			$result->status_code = self::OK;
+			$result->id = $id;
+			return $result;
 			
 		}
 		
 		public function deleteTrack($id){
-			
-			
-				$verbindung = new mysqli("localhost", "root", "", "sportfreunde");
-				$verbindung->set_charset("utf8");
+				$verbindung = $this->connect();
 				$sql_statement = "DELETE FROM tracks WHERE trackid = $id";
+				
 				$verbindung->query($sql_statement);
 				$verbindung->close();
-			
-		}
+			}
 	
 		public function updateTrack($track){
 			
-				$verbindung = new mysqli("localhost", "root", "", "sportfreunde");
-				$verbindung->set_charset("utf8");
+				$verbindung = $this->connect();
 				$sql_statement = "UPDATE tracks SET ".
 								"name = '$track->name', ".
 								"distance = '$track->distance', ".
@@ -115,8 +110,11 @@
 				}
 				
 		}
-	
+		
+		
+		
 	}
-
+	
+	
 
 ?>
