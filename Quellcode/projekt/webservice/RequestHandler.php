@@ -25,7 +25,7 @@
 				   if ($request["name"] == "") {
 					  header("HTTP/1.1 400");
 					  $validation_messages = array();
-					  $validation_messages["title"] = "Der Name ist eine Pflichtangabe. Bitte geben Sie einen Titel an.";
+					  $validation_messages["name"] = "Der Name ist eine Pflichtangabe. Bitte geben Sie einen Titel an.";
 					  echo json_encode($validation_messages);
 					  return;
 					}

@@ -93,13 +93,13 @@
 								"type = '$track->type', ".
 								"difficulty = '$track->difficulty', ".
 								"version = version + 1 ".
-								"WHERE trackid = $track->trackid";
+								"WHERE trackid = $track->trackid AND version = $track->version";
 				$verbindung->query($sql_statement);
 				$affected_rows = $verbindung->affected_rows;
 				
 				if ($affected_rows == 0){
 					
-					$select_statement = "SELECT COUNT(*) FROM tracks WHERE id = $track->trackid";
+					$select_statement = "SELECT COUNT(*) FROM tracks WHERE trackid = $track->trackid";
 					$result_set = $verbindung->query($select_statement);
 					$row = $result_set->fetch_row();
 					$count = $row[0];
