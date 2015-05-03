@@ -15,3 +15,7 @@ RewriteRule ^tracks/(.+)$ webservice/RequestHandler.php?command=DeleteTrackComma
 RewriteCond %{REQUEST_METHOD} PUT
 RewriteRule ^tracks/(.+)$ webservice/RequestHandler.php?command=UpdateTrackCommand&id=$1
 
+AuthType Basic
+AuthName "Sportfreunde RFH"
+AuthUserFile "F:\xampp\htdocs\SportfreundeRFH\Quellcode\projekt\.htusers"
+Require valid-user

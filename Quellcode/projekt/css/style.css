@@ -42,6 +42,7 @@ a:hover{
 
 #navigation {
 	font-size: 18px; 
+	background: rgba(0,0,0,0.5);
     float: left;
 	text-align: right;
     height: 100px;
@@ -88,3 +89,12 @@ a:hover{
 .menuentry{
 	padding-right:15px;
 }
+
+.template, #track_list, #track_details{
+	display: none;
+}
+
+.track{
+	cursor: pointer;
+}
+
