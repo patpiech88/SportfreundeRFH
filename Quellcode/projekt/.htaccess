@@ -17,5 +17,5 @@ RewriteRule ^tracks/(.+)$ webservice/RequestHandler.php?command=UpdateTrackComma
 
 AuthType Basic
 AuthName "Sportfreunde RFH"
-AuthUserFile "F:\xampp\htdocs\SportfreundeRFH\Quellcode\projekt\.htusers"
+AuthUserFile "C:\Users\Xerox\Desktop\WMD\xampp\htdocs\SportfreundeRFH\Quellcode\projekt\.htusers"
 Require valid-user

@@ -61,7 +61,7 @@ a:hover{
     background: rgba(0,0,0,0.5);
     margin-left:auto;
 	margin-right:auto;
-	width:80%;
+	width:100%;
 	text-align:center;
 }
 
@@ -76,13 +76,13 @@ a:hover{
 	margin-left:auto;
 	margin-right:auto;
     height: 40px;
-    width: 80%;
+    width: 100%;
     background: rgba(0, 0, 0, 0.6);
     clear: both;
 }
 #notes{
 	width: 80%;
-	heihgt 80%;
+	height: 80%;
 }
 
 
@@ -98,3 +98,50 @@ a:hover{
 	cursor: pointer;
 }
 
+#name_field, #distance_field, #location_field, #type_field, #difficulty_field{
+	width: 500px;
+	display: block;
+}
+
+tr:nth-child(even) {
+	background-color: #C5C5C5;
+}
+
+table, th{
+text-align: left;
+border: 1px solid black;
+}
+
+.name{
+width: 30%;
+}
+
+.distance{
+width: 10%;
+}
+
+.location{
+width: 20%;
+}
+
+.type{
+width: 20%;
+}
+
+.difficulty{
+width: 20%;
+}
+
+#space{
+width: 20%;
+}
+
+#name_th{
+width: 30%;
+} 
+#distance_th{
+width: 10%;
+}
+#location_th, #type_th, #difficulty_th{
+width: 20%;
+}

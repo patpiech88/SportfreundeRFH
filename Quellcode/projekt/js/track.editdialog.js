@@ -2,7 +2,8 @@ $.widget("track.editDialog", $.ui.dialog, {
 	options: {
 		autoOpen: false,
 		modal: true,
-		width: 550
+		width: 750,
+		height: 500
 	},
 	
 	open: function(track){
