@@ -8,6 +8,8 @@
 		public $location;
 		public $type;
 		public $difficulty;
+		public $time;
+		public $description;
 		public $url;
 	}
 

@@ -6,7 +6,6 @@ $.widget("track.trackDetails", {
 		$.ajax({
 		url: url,
 		dataType: "json",
-		//success: this._appendTodo,
 		success: this._setTrack,
 		context: this
 		
@@ -21,6 +20,8 @@ $.widget("track.trackDetails", {
 			this.element.find(".location").text(track.location);
 			this.element.find(".type").text(track.type);
 			this.element.find(".difficulty").text(track.difficulty);
+			this.element.find(".time").text(track.time);
+			this.element.find(".description").text(track.description);
 	}
 	
 	

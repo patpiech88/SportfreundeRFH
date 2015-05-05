@@ -6,6 +6,20 @@ $.widget("track.createDialog", $.ui.dialog, {
 		height: 500
 	},
 	
+	open: function(){
+			
+			this.element.find(".validation_message").empty();
+			this.element.find("#name_field").val("");
+			this.element.find("#name_field").removeClass("ui-state-error");
+			this.element.find("#distance_field").val("");
+			this.element.find("#location_field").val("");
+			this.element.find("#type_field").val("");
+			this.element.find("#difficulty_field").val("");
+			this.element.find("#time_field").val("");
+			this.element.find("#description_field").val("");
+			this._super();
+	},
+	
 	
 	
 	_create: function(){
@@ -37,7 +51,9 @@ $.widget("track.createDialog", $.ui.dialog, {
 			distance: this.element.find("#distance_field").val(),
 			location: this.element.find("#location_field").val(),
 			type: this.element.find("#type_field").val(),
-			difficulty: this.element.find("#difficulty_field").val()
+			difficulty: this.element.find("#difficulty_field").val(),
+			time: this.element.find("#time_field").val(),
+			description: this.element.find("#description_field").val()
 		};
 		
 		$.ajax({

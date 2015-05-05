@@ -10,6 +10,8 @@
 			$track->location = $request["location"];
 			$track->type = $request["type"];
 			$track->difficulty = $request["difficulty"];
+			$track->time = $request["time"];
+			$track->description = $request["description"];
 			
 			$track_service = new TracksService();
 			$result = $track_service->createTrack($track);

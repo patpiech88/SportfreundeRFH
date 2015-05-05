@@ -8,7 +8,7 @@ $.widget("track.editDialog", $.ui.dialog, {
 	
 	open: function(track){
 			this._track = track;
-			//ANPASSEN!!!!!!!
+			
 			this.element.find(".validation_message").empty();
 			this.element.find("#name_field").val(track.name);
 			this.element.find("#name_field").removeClass("ui-state-error");
@@ -16,6 +16,8 @@ $.widget("track.editDialog", $.ui.dialog, {
 			this.element.find("#location_field").val(track.location);
 			this.element.find("#type_field").val(track.type);
 			this.element.find("#difficulty_field").val(track.difficulty);
+			this.element.find("#time_field").val(track.time);
+			this.element.find("#description_field").val(track.description);
 			this._super();
 	},
 	
@@ -50,12 +52,14 @@ $.widget("track.editDialog", $.ui.dialog, {
 	_updateTrack: function() {
 		
 		var track = {
-			//ANPASSEN!!!!!
+			
 			name: this.element.find("#name_field").val(),
 			distance: this.element.find("#distance_field").val(),
 			location: this.element.find("#location_field").val(),
 			type: this.element.find("#type_field").val(),
-			difficulty: this.element.find("#difficulty_field").val()
+			difficulty: this.element.find("#difficulty_field").val(),
+			time: this.element.find("#time_field").val(),
+			description: this.element.find("#description_field").val()
 		};
 		
 		$.ajax({

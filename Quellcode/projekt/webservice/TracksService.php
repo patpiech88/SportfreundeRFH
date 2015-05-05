@@ -20,7 +20,7 @@
 		
 		public function readTrack($id){		
 			$verbindung = $this->connect();
-			$sql_statement = "SELECT name, distance, location, type, difficulty, trackid FROM tracks WHERE trackid = $id";
+			$sql_statement = "SELECT name, distance, location, type, difficulty, trackid, version, TIME_FORMAT(time, '%H:%i:%s') as time, description FROM tracks WHERE trackid = $id";
 			$result_set = $verbindung->query($sql_statement);
 			$track = $result_set->fetch_object("Track");
 			if ($track === NULL){
@@ -32,7 +32,7 @@
 		
 		public function readTracks(){		
 			$verbindung = $this->connect();
-			$sql_statement = "SELECT name, distance, location, type, difficulty, trackid, version FROM tracks";
+			$sql_statement = "SELECT name, distance, location, type, difficulty, trackid, version, TIME_FORMAT(time, '%H:%i:%s') as time, description FROM tracks";
 			$result_set = $verbindung->query($sql_statement);
 			$tracks = array();
 			$track = $result_set->fetch_object("Track");
@@ -58,6 +58,8 @@
 							"location = '$track->location', ".
 							"type = '$track->type', ".
 							"difficulty = '$track->difficulty', ".
+							"time = '$track->time', ".
+							"description = '$track->description', ".
 							"version = 1";
 			
 			$verbindung->query($sql_statement);
@@ -87,6 +89,8 @@
 								"location = '$track->location', ".
 								"type = '$track->type', ".
 								"difficulty = '$track->difficulty', ".
+								"time = '$track->time', ".
+								"description = '$track->description', ".
 								"version = version + 1 ".
 								"WHERE trackid = $track->trackid AND version = $track->version";
 				$verbindung->query($sql_statement);

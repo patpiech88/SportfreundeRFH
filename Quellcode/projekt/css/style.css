@@ -98,7 +98,7 @@ a:hover{
 	cursor: pointer;
 }
 
-#name_field, #distance_field, #location_field, #type_field, #difficulty_field{
+#name_field, #distance_field, #location_field, #type_field, #difficulty_field, #time_field, #description_field{
 	width: 500px;
 	display: block;
 }
