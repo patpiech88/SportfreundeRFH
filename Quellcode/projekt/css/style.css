@@ -132,16 +132,13 @@ width: 20%;
 width: 20%;
 }
 
-#space{
-width: 20%;
-}
 
 #name_th{
-width: 30%;
+ 
 } 
 #distance_th{
-width: 10%;
+
 }
 #location_th, #type_th, #difficulty_th{
-width: 20%;
+
 }

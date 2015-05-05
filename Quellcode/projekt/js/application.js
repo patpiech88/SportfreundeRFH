@@ -31,7 +31,13 @@ $(function() {
 			$("#track_details").hide();
 			
 			
+		},
+		onCreateTrackClicked: function(){
+			$("#create_dialog").createDialog("open");
+			
+			//$("#track_list").trackList("reload");
 		}
+		
 	});
 	
 	$("#track_list").trackList({
@@ -64,6 +70,14 @@ $(function() {
 	$("#edit_dialog").editDialog({
 		onTrackEdited: function(){
 			$("#track_list").trackList("reload");
+		}
+	});
+	
+	$("#create_dialog").createDialog({
+		onTrackCreated: function(){
+			$("#track_list").trackList("reload");
+			$("#track_list").show();
+			
 		}
 	});
 	

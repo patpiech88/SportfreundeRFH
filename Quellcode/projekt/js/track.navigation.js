@@ -5,5 +5,9 @@ $.widget("track.navigation", {
 			that._trigger("onShowTracksClicked");
 			return false;
 		});
+		this.element.find(".create_dialog").click(function(){
+			that._trigger("onCreateTrackClicked");
+			return false;
+		});
 	}
 });
