@@ -34,8 +34,9 @@ $(function() {
 		},
 		onCreateTrackClicked: function(){
 			$("#create_dialog").createDialog("open");
+			$("#track_list").show();
+			$("#track_details").hide();
 			
-			//$("#track_list").trackList("reload");
 		}
 		
 	});
@@ -76,7 +77,7 @@ $(function() {
 	$("#create_dialog").createDialog({
 		onTrackCreated: function(){
 			$("#track_list").trackList("reload");
-			$("#track_list").show();
+			
 			
 		}
 	});

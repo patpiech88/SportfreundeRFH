@@ -33,8 +33,7 @@ $.widget("track.deleteDialog", $.ui.dialog, {
 				
 				that.close();
 				
-				//alert(that._todoUrl);
-				//that._deleteTodo(that._todoUrl);
+				
 			}
 		}
 		

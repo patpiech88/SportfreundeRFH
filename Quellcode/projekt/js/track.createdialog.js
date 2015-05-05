@@ -6,22 +6,11 @@ $.widget("track.createDialog", $.ui.dialog, {
 		height: 500
 	},
 	
-	open: function(){
-			
-			
-			
-			this.element.find("#name_field").val();
-			this.element.find("#distance_field").val();
-			this.element.find("#location_field").val();
-			this.element.find("#type_field").val();
-			this.element.find("#difficulty_field").val();
-			this._super();
-	},
+	
 	
 	_create: function(){
 		var that = this;
 		this.options.buttons = [
-			//Erster Button
 			{
 				text: "Abbrechen",
 				click: function() {
@@ -29,16 +18,10 @@ $.widget("track.createDialog", $.ui.dialog, {
 					
 				}
 			},	
-			//Zweiter Button
 			{
 				text: "OK",
 				click: function() {
-					
 					that._createTrack();
-					
-					
-					//alert(that._todoUrl);
-					//that._deleteTodo(that._todoUrl);
 				}
 			}
 		
@@ -46,20 +29,21 @@ $.widget("track.createDialog", $.ui.dialog, {
 		this._super();
 	},
 	
-	_createTrack: function(track) {
+	_createTrack: function() {
 		
 		var track = {
-			//Datenübergabe funktioniert nicht
-			name: this.element.find("#name_field").val(track.name),
-			distance: this.element.find("#distance_field").val(track.distance),
-			location: this.element.find("#location_field").val(track.location),
-			type: this.element.find("#type_field").val(track.type),
-			difficulty: this.element.find("#difficulty_field").val(track.difficulty)
+			
+			name: this.element.find("#name_field").val(),
+			distance: this.element.find("#distance_field").val(),
+			location: this.element.find("#location_field").val(),
+			type: this.element.find("#type_field").val(),
+			difficulty: this.element.find("#difficulty_field").val()
 		};
 		
 		$.ajax({
 						type: "POST",
 						data: track,
+						url: "/SportfreundeRFH/Quellcode/projekt/tracks",
 						success: function(){
 							this.close();
 							this._trigger("onTrackCreated");
