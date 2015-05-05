@@ -40,8 +40,6 @@ $.widget("track.editDialog", $.ui.dialog, {
 					that._updateTrack();
 					
 					
-					//alert(that._todoUrl);
-					//that._deleteTodo(that._todoUrl);
 				}
 			}
 		

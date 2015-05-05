@@ -103,42 +103,26 @@ a:hover{
 	display: block;
 }
 
-tr:nth-child(even) {
-	background-color: #C5C5C5;
-}
 
-table, th{
+
+td, th{
 text-align: left;
 border: 1px solid black;
 }
 
-.name{
+th{
+text-align: center;
+}
+
+
+#name_format{
 width: 30%;
 }
 
-.distance{
+#distance_format{
 width: 10%;
 }
 
-.location{
+#location_format, #type_format, #difficulty_format{
 width: 20%;
-}
-
-.type{
-width: 20%;
-}
-
-.difficulty{
-width: 20%;
-}
-
-
-#name_th{
- 
-} 
-#distance_th{
-
-}
-#location_th, #type_th, #difficulty_th{
-
 }

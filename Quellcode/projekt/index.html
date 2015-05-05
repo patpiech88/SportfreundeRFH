@@ -22,47 +22,52 @@
     <div id="wrapper">
         <div id="header">
             <p><img src="img/header2.png"></p>
+			
         </div>
         <div id="navigation">
-            <p>
+			<span>Willkommen auf Sportfreunde RFH</span>
+				<p>
 				<span class="menuentry"><a href="#" class="create_dialog">Lauf eintragen</a></span>
 				<span class="menuentry"><a href="#">Bestenliste</a></span>
 				<span class="menuentry"><a href="#" class="show_tracks">Streckenübersicht</a></span>
 				<span class="menuentry"><a href="#">Meine Daten</a></span>
 				<span class="menuentry"><a href="#">Meine Läufe</a></span>
-			</p>
+				</p>
         </div>
-        <div id="contentliquid"><div id="content">
-		 <p>
-		
-			<p>Willkommen auf Sportfreunde RFH</p>
-			
-				<div id="track_list">
-					<table>
-						<tr>
-							<th class="name">Name</th>
-							<th class="distance">Distanz</th>
-							<th class="location">Ort</th>
-							<th class="type">Typ</th>
-							<th class="difficulty">Schwierigkeitsgrad</th>
-						</tr>
-					</table>
-					<div class="track template">
+        <div id="contentliquid">
+			<div id="content">
+				<p>
+					<div id="track_list">
+						<div >
 						<table>
 							<tr>
-								<td class="name"></td>
-								<td class="distance"></td>
-								<td class="location"></td>
-								<td class="type"></td>
-								<td class="difficulty"></td>
-								<td><a class="edit_track" href="#">Bearbeiten</a></td>
-								<td><a class="delete_track" href="#">Löschen</a></td>
-								</td>
+								<th id="name_format">Name</th>
+								<th id="distance_format">Distanz</th>
+								<th id="location_format">Ort</th>
+								<th id="type_format">Typ</th>
+								<th id="difficulty_format">Schwierigkeitsgrad</th>
+								<th></th>
+								<th></th>
+						
 							</tr>
+							<tr class="track template">
+								<td class="name" id="name_format"></td>
+								<td class="distance" id="distance_format"></td>
+								<td class="location" id="location_format"></td>
+								<td class="type" id="type_format"></td>
+								<td class="difficulty" id="difficulty_format"></td>		
+								<td><a class="edit_track" href="#">Bearbeiten</a></td>
+								<td><a class="delete_track" href="#">Löschen</a></td>								
+							</tr>
+							
+								
+							
+
 						</table>
+					</div>
 					</div>	
-				</div>
-			
+					
+					
 				
 					<div id="track_details" class="ui-widget">
 					  <span>Name</span>
@@ -86,8 +91,9 @@
 					  <span>Beschreibung</span>
 					  <span class="description"></span>
 					</div>
-		</p>
-       </div></div>
+				</p>
+			</div>
+		</div>
 	   
 	  <div id="edit_dialog" title="Track bearbeiten" class="ui-widget">
       <form>
@@ -160,7 +166,7 @@
 		</div>
 	   
 	   <div id="delete_dialog" title="Track löschen" class="ui-widget">
-			<div>Möchten Sie den Track wirklich löschen?</div>
+			<div>Möchten Sie die Strecke wirklich löschen?</div>
 		</div>
 
         <div id="footer">
