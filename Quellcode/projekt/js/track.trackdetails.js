@@ -22,6 +22,17 @@ $.widget("track.trackDetails", {
 			this.element.find(".difficulty").text(track.difficulty);
 			this.element.find(".time").text(track.time);
 			this.element.find(".description").text(track.description);
+			
+			var time_value = track.time.split(':');
+			var time_sekunden = (3600 * time_value[0]) + (60 * time_value[1]) + (1 * time_value[2]);
+			var pace_sekunden = time_sekunden / track.distance;
+			var h = parseInt(pace_sekunden / 3600);
+			var m = parseInt((pace_sekunden / 60) % 60);
+			var s = parseInt(pace_sekunden % 60);
+			var pace_value = h+':'+m+':'+s;
+			this.element.find(".pace").text(pace_value);
+			
+			
 	}
 	
 	

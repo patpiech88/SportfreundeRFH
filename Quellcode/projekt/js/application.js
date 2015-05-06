@@ -16,7 +16,7 @@ $(function() {
 	});
 	
 	$(document).ajaxStart(function() {
-		$.blockUI({ message: "Moment bitte..." });
+		$.blockUI({ message: "Kurze Verschnaufpause..." });
 	});
 	$(document).ajaxStop(function() {
 		$.unblockUI();

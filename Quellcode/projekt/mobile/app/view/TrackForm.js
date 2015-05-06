@@ -35,6 +35,12 @@ Ext.define('Trackliste.view.TrackForm', {
 				readOnly: true
 			},
 			{
+				xtype: 'textfield',
+				name: 'pace',
+				label: 'Pace',
+				readOnly: true
+			},
+			{
 				xtype: 'textareafield',
 				name: 'description',
 				label: 'Beschreibung',
