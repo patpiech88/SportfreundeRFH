@@ -105,9 +105,10 @@ a:hover{
 
 
 
-td, th{
-text-align: left;
-border: 1px solid black;
+td{
+
+text-align: justify;
+
 }
 
 th{
