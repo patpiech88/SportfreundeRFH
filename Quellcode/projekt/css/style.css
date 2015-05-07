@@ -108,11 +108,13 @@ a:hover{
 td{
 
 text-align: justify;
+border: 1px solid black;
 
 }
 
 th{
-text-align: center;
+text-align: justify;
+border: 1px solid black;
 }
 
 
@@ -126,4 +128,8 @@ width: 10%;
 
 #location_format, #type_format, #difficulty_format{
 width: 20%;
+}
+
+#action_format{
+text-align: center;
 }
