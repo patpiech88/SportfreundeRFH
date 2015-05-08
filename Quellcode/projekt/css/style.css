@@ -94,6 +94,11 @@ a:hover{
 	display: none;
 }
 
+#track_details{
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .track{
 	cursor: pointer;
 }
