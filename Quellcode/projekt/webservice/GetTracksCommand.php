@@ -13,7 +13,6 @@
 				
 				foreach ($tracks as $track) {
 					$track->url = "/SportfreundeRFH/Quellcode/projekt/tracks/$track->trackid";
-					
 					unset($track->trackid);
 				}
 			

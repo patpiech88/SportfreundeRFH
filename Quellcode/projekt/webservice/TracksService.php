@@ -13,9 +13,12 @@
 					return self::ERROR;
 				}
 			$link->set_charset("utf8");
+			if($link == FALSE){
+				$link->close();
+				return self::ERROR;
+			}
 			return $link;
 			}
-		
 		
 		
 		public function readTrack($id){		
@@ -33,7 +36,13 @@
 		public function readTracks(){		
 			$verbindung = $this->connect();
 			$sql_statement = "SELECT name, distance, location, type, difficulty, trackid, version, TIME_FORMAT(time, '%H:%i:%s') as time, description FROM tracks";
-			$result_set = $verbindung->query($sql_statement);
+			//Weiß noch nicht ob das so richtig ist...
+			try{
+				$result_set = $verbindung->query($sql_statement); //Originalzeile
+			}catch (mysqli_sql_exeption $e){
+				echo $e;
+			}
+			//Bis hier
 			$tracks = array();
 			$track = $result_set->fetch_object("Track");
 			while($track != NULL){

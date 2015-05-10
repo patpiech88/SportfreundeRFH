@@ -1,6 +1,4 @@
 <?php
-
-	
 	require "Track.php";
 	require "TracksService.php";
 	require "GetTrackCommand.php";
@@ -9,8 +7,6 @@
 	require "CreateTrackResult.php";
 	require "DeleteTrackCommand.php";
 	require "UpdateTrackCommand.php";
-	
-	
 
 	
 	class RequestHandler {
