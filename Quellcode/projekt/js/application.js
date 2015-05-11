@@ -4,8 +4,6 @@ $(function() {
 		if(response.status == 400) {
 			return;
 		}
-		
-		//Methodenaufruf für ein Widget
 		$("#error_dialog").errorDialog("open", response.statusText);
 		$("#track_details").hide();
 		$("#track_list").show();
@@ -29,16 +27,10 @@ $(function() {
 			$("#track_list").trackList("reload");
 			$("#track_list").show();
 			$("#track_details").hide();
-			
-			
 		},
 		onCreateTrackClicked: function(){
 			$("#create_dialog").createDialog("open");
-			
-			
-			
 		}
-		
 	});
 	
 	$("#track_list").trackList({
@@ -47,10 +39,8 @@ $(function() {
 			$("#track_details").show();
 			$("#track_details").trackDetails("load", trackUrl);
 		},
-		
 		onDeleteTrackClicked: function(event, trackUrl){
 			$("#delete_dialog").deleteDialog("open", trackUrl);
-			
 		},
 		onEditTrackClicked: function(event, track){
 			$("#edit_dialog").editDialog("open", track);
@@ -60,12 +50,11 @@ $(function() {
 	
 	$("#track_details").trackDetails();
 	
-	//instanziierung
+	
 	$("#delete_dialog").deleteDialog({
 		onTrackDeleted: function(){
 			$("#track_list").trackList("reload");
 		}
-		
 	});
 	
 	$("#edit_dialog").editDialog({
@@ -78,8 +67,12 @@ $(function() {
 		onTrackCreated: function(){
 			$("#track_list").trackList("reload");
 			$("#track_list").show();
-			
-			
+		}
+	});
+	
+	$("#list_limit").listLimit({
+		onTenClicked: function(){
+			$("#track_list").trackList("reload", 10);
 		}
 	});
 	

@@ -28,21 +28,15 @@ $.widget("track.editDialog", $.ui.dialog, {
 			{
 				text: "Abbrechen",
 				click: function() {
-				that.close();
-					
+				that.close();	
 				}
 			},	
-			//Zweiter Button
 			{
 				text: "OK",
 				click: function() {
-					
-					that._updateTrack();
-					
-					
+				that._updateTrack();
 				}
 			}
-		
 		];
 		this._super();
 	},

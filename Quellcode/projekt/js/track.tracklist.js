@@ -15,7 +15,8 @@ $.widget("track.trackList", {
 		dataType: "json",
 		success: this._appendTracks,
 		context: this
-	});
+		});
+		
   },
   
   _appendTracks: function(tracks) {
