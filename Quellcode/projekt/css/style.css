@@ -114,10 +114,12 @@ a:hover{
 
 td{
 text-align: justify;
+border: 1px solid black;
 }
 
 th{
 text-align: left;
+border: 1px solid black;
 }
 
 
@@ -139,5 +141,9 @@ text-align: center;
 }
 
 #limit{
-text-align: right;
+text-align: left;
+}
+
+#arrows{
+text-align: center;
 }

@@ -6,19 +6,33 @@ $.widget("track.listLimit", {
 			return false;
 		});
 		this.element.find(".fifteen").click(function(){
-			alert("Klappt");
+			that._trigger("onFifteenClicked");
+			return false;
 			
 		});
 		this.element.find(".twenty").click(function(){
-			alert("Klappt");
+			that._trigger("onTwentyClicked");
+			return false;
 			
 		});
 		this.element.find(".twentyfive").click(function(){
-			alert("Klappt");
+			that._trigger("onTwentyfiveClicked");
+			return false;
 			
 		});
 		this.element.find(".thirty").click(function(){
-			alert("Klappt");
+			that._trigger("onThirtyClicked");
+			return false;
+			
+		});
+		this.element.find(".left_arrow").click(function(){
+			that._trigger("onLeftArrowClicked");
+			return false;
+			
+		});
+		this.element.find(".right_arrow").click(function(){
+			that._trigger("onRightArrowClicked");
+			return false;
 			
 		});
 	}

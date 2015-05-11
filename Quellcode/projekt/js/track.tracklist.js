@@ -1,4 +1,7 @@
-$.widget("track.trackList", {  
+var gtest;
+var page = 0;
+
+$.widget("track.trackList", {
   _create: function() { 
 	$.ajax({
 		url:"/SportfreundeRFH/Quellcode/projekt/tracks",
@@ -6,9 +9,16 @@ $.widget("track.trackList", {
 		success: this._appendTracks,
 		context: this
 	});
+	
   },
   
-  reload: function() {
+  reload: function(wert) {
+	  if(typeof(gtest) == "undefined" || typeof(wert) == "undefined" ){
+		  gtest = 10;
+	  }
+	  else{
+	  gtest = wert;
+	  }
 	  this.element.find(".track:not(.template)").remove();
 	  $.ajax({
 		url:"/SportfreundeRFH/Quellcode/projekt/tracks",
@@ -16,12 +26,27 @@ $.widget("track.trackList", {
 		success: this._appendTracks,
 		context: this
 		});
-		
   },
+  
+  forward: function(){
+	  page = page + 1;
+	  this.reload(gtest);
+  },
+  backwards: function(){
+	  if(page > 0){
+	  page = page - 1;
+	  }
+	  this.reload(gtest);
+  },
+  
   
   _appendTracks: function(tracks) {
 		var that = this;
-			for(var i = 0; i < tracks.length; i++){
+		
+			for(var i = page * gtest + 1; i < (page * gtest + 1) + gtest; i++){
+				if(i < tracks.length)
+				{
+				
 				var track = tracks[i];
 				var trackElement = this.element.find(".template").clone().removeClass("template");
 				trackElement.find(".name").text(track.name);
@@ -40,7 +65,11 @@ $.widget("track.trackList", {
 				that._trigger("onEditTrackClicked", null, event.data);
 				return false;
 				});
+				
 				this.element.append(trackElement);
+				}
 			}
 		}
 });
+
+

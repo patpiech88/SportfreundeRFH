@@ -73,7 +73,26 @@ $(function() {
 	$("#list_limit").listLimit({
 		onTenClicked: function(){
 			$("#track_list").trackList("reload", 10);
+		},
+		onFifteenClicked: function(){
+			$("#track_list").trackList("reload", 15);
+		},
+		onTwentyClicked: function(){
+			$("#track_list").trackList("reload", 20);
+		},
+		onTwentyfiveClicked: function(){
+			$("#track_list").trackList("reload", 25);
+		},
+		onThirtyClicked: function(){
+			$("#track_list").trackList("reload", 30);
+		},
+		onLeftArrowClicked: function(){
+			$("#track_list").trackList("backwards");
+		},
+		onRightArrowClicked: function(){
+			$("#track_list").trackList("forward");
 		}
+		
 	});
 	
 	
