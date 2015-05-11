@@ -41,7 +41,7 @@
 							<thead>
 								<tr class="table_head">
 									<th id="name_format">Name</th>
-									<th id="distance_format">Distanz in km</th>
+									<th id="distance_format">Distanz (km)</th>
 									<th id="location_format">Ort</th>
 									<th id="type_format">Typ</th>
 									<th id="difficulty_format">Schwierigkeitsgrad</th>
@@ -60,54 +60,53 @@
 									<td><a class="delete_track" href="#">Löschen</a></td>								
 								</tr>
 							</tbody>
+							<tfoot>
+								<tr class="list_limit">
+									<td id="limit" colspan="8">Einträge pro Seite:
+									<a class="ten" href="#">10</a>
+									<a class="fifteen" href="#">15</a>
+									<a class="twenty" href="#">20</a>
+									<a class="twentyfive" href="#">25</a>
+									<a class="thirty" href="#">30</a></td>
+								</tr>
+							</tfoot>
 						</table>
 
-						
-					
 						<table id="track_details" class="ui-widget">
 							<tr>
 								<td><label for="name">Name</label></td>
 								<td class="name" name="name"></td>
 							</tr>
-						
 							<tr>
 								<td><label for="distance">Distanz</label></td>
 								<td class="distance" name="distance"></td>
 								<td>km</td>
 							</tr>
-						 
 							<tr>
 								<td><label for="location">Ort</label></td>
 								<td class="location" name="distance"></td>
 							</tr>
-						 
-						  
-						  <tr>
+							<tr>
 								<td><label for="type">Typ</label></td>
 								<td class="type" name="type"></td>
-						  </tr>
-						  
-						  <tr>
+							</tr> 
+							<tr>
 								<td><label for="difficulty">Schwierigkeitsgrad</label></td>
 								<td class="difficulty" name="difficulty"></td>
-						  </tr>
-						  
-						  <tr>
+							</tr>
+							<tr>
 								<td><label for="time">Zeit</label></td>
 								<td class="time" name="time"></td>
-						  </tr>
-						 
-						  <tr>
+							</tr>
+							<tr>
 								<td><label for="pace">Pace (Zeit pro km)</label></td>
 								<td class="pace" name="pace"></td>
-						  </tr>
-						  
-						  <tr>
+							</tr>
+							<tr>
 								<td><label for="description">Beschreibung</label></td>
 								<td class="description" name="description"></td>
-						  </tr>
+							</tr>
 						</table>
-					
 				</p>
 			</div>
 		</div>
@@ -120,13 +119,10 @@
           </tr>
           <tr>
             <td>
-			
               <label for="name_field">Name</label>
 			  <input id="name_field" type="text"/>
-			  
 			  <label for="distance_field">Distanz</label>
 			  <input id="distance_field" type="text"/>
-			  
 			  <label for="location_field">Ort</label>
 			  <input id="location_field" type="text"/>
 			  <label for="type_field">Typ</label>
@@ -138,7 +134,6 @@
 			  <label for="description_field">Beschreibung</label>
 			  <input id="description_field" type="text"/>
             </td>
-            
           </tr>
 		</table>
       </form>
@@ -153,13 +148,10 @@
           </tr>
           <tr>
             <td>
-			
               <label for="name_field">Name</label>
 			  <input id="name_field" type="text"/>
-			  
 			  <label for="distance_field">Distanz</label>
 			  <input id="distance_field" type="text"/>
-			  
 			  <label for="location_field">Ort</label>
 			  <input id="location_field" type="text"/>
 			  <label for="type_field">Typ</label>
@@ -171,7 +163,6 @@
 			  <label for="description_field">Beschreibung</label>
 			  <input id="description_field" type="text"/>
             </td>
-            
           </tr>
 		</table>
       </form>
@@ -189,12 +180,8 @@
             <p>Impressum
 			<a href="/SportfreundeRFH/Quellcode/projekt/mobile/index.html">Mobile Version</a>
 			<a href="logout.php">Logout</a>
-   			
 			</p>
         </div>
     </div>
-	
-	
-	
 </body>
 </html>

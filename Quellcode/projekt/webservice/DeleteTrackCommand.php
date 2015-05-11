@@ -8,9 +8,7 @@
 					$track_service = new TracksService();
 					$track_service->deleteTrack($id);
 
-				}
-				
-		
+				}	
 	}
 
 

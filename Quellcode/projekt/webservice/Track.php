@@ -1,5 +1,4 @@
 <?php
-
 	class Track{
 		public $trackid;
 		public $version;
@@ -12,5 +11,4 @@
 		public $description;
 		public $url;
 	}
-
 ?>

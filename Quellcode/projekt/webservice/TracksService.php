@@ -8,16 +8,16 @@
 		const VERSION_OUTDATED = "VERSION_OUTDATED";
 		
 		public function connect(){
-			@$link = new mysqli("localhost", "root", "", "sportfreunde");
-			if ($link->connect_error != NULL){
+			@$verbindung = new mysqli("localhost", "root", "", "sportfreunde");
+			if ($verbindung->connect_error != NULL){
 					return self::ERROR;
 				}
-			$link->set_charset("utf8");
-			if($link == FALSE){
-				$link->close();
+			$verbindung->set_charset("utf8");
+			if($verbindung == FALSE){
+				$verbindung->close();
 				return self::ERROR;
 			}
-			return $link;
+			return $verbindung;
 			}
 		
 		
@@ -29,27 +29,21 @@
 			if ($track === NULL){
 					return self::NOTFOUND;
 				}
-			mysqli_close($verbindung);
+			$verbindung->close();
 			return $track;
 		}
 		
 		public function readTracks(){		
 			$verbindung = $this->connect();
 			$sql_statement = "SELECT name, distance, location, type, difficulty, trackid, version, TIME_FORMAT(time, '%H:%i:%s') as time, description FROM tracks";
-			//Weiß noch nicht ob das so richtig ist...
-			try{
-				$result_set = $verbindung->query($sql_statement); //Originalzeile
-			}catch (mysqli_sql_exeption $e){
-				echo $e;
-			}
-			//Bis hier
+			$result_set = $verbindung->query($sql_statement);
 			$tracks = array();
 			$track = $result_set->fetch_object("Track");
 			while($track != NULL){
 					$tracks[] = $track;
 					$track = $result_set->fetch_object("Track");
 				}
-			mysqli_close($verbindung);
+			$verbindung->close();
 			return $tracks;	
 		}
 		
@@ -73,7 +67,6 @@
 			
 			$verbindung->query($sql_statement);
 			$id = $verbindung->insert_id;
-			
 			$verbindung->close();
 			$result->status_code = self::OK;
 			$result->id = $id;
@@ -115,19 +108,11 @@
 					if($count == 1){
 					return self::VERSION_OUTDATED;
 					}
-					
 					return self::NOTFOUND;
 				}
 				else{
 				$verbindung->close();
-				}
-				
+				}	
 		}
-		
-		
-		
 	}
-	
-	
-
 ?>

@@ -14,7 +14,6 @@
 			public function handleRequest(){
 				header("Cache-Control: no-cache, must-revalidate");	
 				$request = $_REQUEST;
-				
 				if ($_SERVER["REQUEST_METHOD"] == "PUT") {
 				   parse_str(file_get_contents("php://input"), $body_parameters);
 				   $request = $request + $body_parameters;
@@ -26,15 +25,12 @@
 					  return;
 					}
 				}
-			
-			$request_headers = apache_request_headers();
-				
-				$class_name = $request["command"];	//query string wird ausgelesen
+				$request_headers = apache_request_headers();
+				$class_name = $request["command"];	
 				$command = new $class_name;
 				$result = $command->execute($request, $request_headers);
-				
 				if($result !== NULL){
-				echo(json_encode($result));
+					echo(json_encode($result));
 				}
 			}
 	}

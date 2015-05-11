@@ -5,7 +5,6 @@
 		public function execute($request, $request_headers){
 			
 			$track = new Track();
-			
 			$track->trackid = $request["id"];
 			$track->name = $request["name"];
 			$track->distance = $request["distance"];
@@ -15,7 +14,6 @@
 			$track->time = $request["time"];
 			$track->description = $request["description"];
 			$track->version = $request_headers["If-Match"];
-			
 			$track_service = new TracksService();
 			$result = $track_service->updateTrack($track);
 			if($result == TracksService::VERSION_OUTDATED){

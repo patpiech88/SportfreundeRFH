@@ -29,11 +29,9 @@ $.widget("track.trackList", {
 				trackElement.find(".type").text(track.type);
 				trackElement.find(".difficulty").text(track.difficulty);
 				trackElement.click(track.url, function(event){
-					//alert(track.url);
 					that._trigger("onTrackClicked", null, event.data);
 					});
 				trackElement.find(".delete_track").click(track.url, function(event){
-					//alert("Löschen geklickt");
 					that._trigger("onDeleteTrackClicked", null, event.data);
 					return false;
 					});
@@ -43,11 +41,5 @@ $.widget("track.trackList", {
 				});
 				this.element.append(trackElement);
 			}
-			
-			//alert("HTTP Anfrage erfolgreich");
 		}
-		
-	
-  
-  
 });
