@@ -8,7 +8,6 @@ $.widget("track.editDialog", $.ui.dialog, {
 	
 	open: function(track){
 			this._track = track;
-			
 			this.element.find(".validation_message").empty();
 			this.element.find("#name_field").val(track.name);
 			this.element.find("#name_field").removeClass("ui-state-error");
@@ -24,7 +23,6 @@ $.widget("track.editDialog", $.ui.dialog, {
 	_create: function(){
 		var that = this;
 		this.options.buttons = [
-			//Erster Button
 			{
 				text: "Abbrechen",
 				click: function() {
@@ -66,8 +64,8 @@ $.widget("track.editDialog", $.ui.dialog, {
 						error: function(response) {
 							if(response.status == 400) {
 								var validationMessages = $.parseJSON(response.responseText);
-								if(validationMessages.title != null){
-								this.element.find(".validation_message").text(validationMessages.title);
+								if(validationMessages.name != null){
+								this.element.find(".validation_message").text(validationMessages.name);
 								this.element.find("#name_field").addClass("ui-state-error").focus();
 								}
 							}

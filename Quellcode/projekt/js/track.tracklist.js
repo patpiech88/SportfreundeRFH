@@ -1,4 +1,4 @@
-var gtest;
+var lines;
 var page = 0;
 
 $.widget("track.trackList", {
@@ -12,12 +12,12 @@ $.widget("track.trackList", {
 	
   },
   
-  reload: function(wert) {
-	  if(typeof(gtest) == "undefined" || typeof(wert) == "undefined" ){
-		  gtest = 10;
+  reload: function(objectsOnPage) {
+	  if(typeof(lines) == "undefined" || typeof(objectsOnPage) == "undefined" ){
+		  lines = 10;
 	  }
 	  else{
-	  gtest = wert;
+	  lines = objectsOnPage;
 	  }
 	  this.element.find(".track:not(.template)").remove();
 	  $.ajax({
@@ -34,19 +34,19 @@ $.widget("track.trackList", {
   
   forward: function(){
 	  page = ++page;
-	  this.reload(gtest);
+	  this.reload(lines);
   },
   backwards: function(){
 	  if(page > 0){
 	  page = --page;
 	  }
-	  this.reload(gtest);
+	  this.reload(lines);
   },
   
   
   _appendTracks: function(tracks) {
 		var that = this;
-			for(var i = page * gtest; i < (page * gtest + 1) + gtest; i++){
+			for(var i = page * lines; i < (page * lines) + lines; i++){
 				if(i < tracks.length)
 				{
 				var track = tracks[i];
@@ -67,9 +67,17 @@ $.widget("track.trackList", {
 				that._trigger("onEditTrackClicked", null, event.data);
 				return false;
 				});
-				//Bedingung, damit Pfeil verschwindet nicht richtig formuliert
-				if(tracks.length < i){
+				if(i < lines){
+					this.element.find(".left_arrow").hide();
+				}
+				else{
+					this.element.find(".left_arrow").show();
+				}
+				if(i + 1 == tracks.length){
 				this.element.find(".right_arrow").hide();
+				}
+				else{
+				this.element.find(".right_arrow").show();
 				}
 				this.element.append(trackElement);
 				}

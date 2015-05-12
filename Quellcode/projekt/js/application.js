@@ -53,38 +53,44 @@ $(function() {
 	
 	$("#delete_dialog").deleteDialog({
 		onTrackDeleted: function(){
-			$("#track_list").trackList("reload");
+			$("#track_list").trackList("reload", limit);
 		}
 	});
 	
 	$("#edit_dialog").editDialog({
 		onTrackEdited: function(){
-			$("#track_list").trackList("reload");
+			$("#track_list").trackList("reload", limit);
 		}
 	});
 	
 	$("#create_dialog").createDialog({
 		onTrackCreated: function(){
-			$("#track_list").trackList("reload");
+			$("#track_list").trackList("reload", limit);
 			$("#track_list").show();
 		}
 	});
+	var limit;
 	
 	$("#list_limit").listLimit({
 		onTenClicked: function(){
-			$("#track_list").trackList("reload", 10);
+			limit = 10;
+			$("#track_list").trackList("reload", limit);
 		},
 		onFifteenClicked: function(){
-			$("#track_list").trackList("reload", 15);
+			limit = 20;
+			$("#track_list").trackList("reload", limit);
 		},
 		onTwentyClicked: function(){
-			$("#track_list").trackList("reload", 20);
+			limit = 30;
+			$("#track_list").trackList("reload", limit);
 		},
 		onTwentyfiveClicked: function(){
-			$("#track_list").trackList("reload", 25);
+			limit = 50;
+			$("#track_list").trackList("reload", limit);
 		},
 		onThirtyClicked: function(){
-			$("#track_list").trackList("reload", 30);
+			limit = 100;
+			$("#track_list").trackList("reload", limit);
 		},
 		onLeftArrowClicked: function(){
 			$("#track_list").trackList("backwards");
