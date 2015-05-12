@@ -24,7 +24,7 @@ $(function() {
 	
 	$("#navigation").navigation({
 		onShowTracksClicked: function(){
-			$("#track_list").trackList("reload");
+			$("#track_list").trackList("home").trackList("reload");
 			$("#track_list").show();
 			$("#track_details").hide();
 		},

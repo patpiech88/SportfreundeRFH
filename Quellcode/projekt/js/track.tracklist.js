@@ -28,13 +28,17 @@ $.widget("track.trackList", {
 		});
   },
   
+  home: function(){
+	  page = 0;
+  },
+  
   forward: function(){
-	  page = page + 1;
+	  page = ++page;
 	  this.reload(gtest);
   },
   backwards: function(){
 	  if(page > 0){
-	  page = page - 1;
+	  page = --page;
 	  }
 	  this.reload(gtest);
   },
@@ -42,11 +46,9 @@ $.widget("track.trackList", {
   
   _appendTracks: function(tracks) {
 		var that = this;
-		
-			for(var i = page * gtest + 1; i < (page * gtest + 1) + gtest; i++){
+			for(var i = page * gtest; i < (page * gtest + 1) + gtest; i++){
 				if(i < tracks.length)
 				{
-				
 				var track = tracks[i];
 				var trackElement = this.element.find(".template").clone().removeClass("template");
 				trackElement.find(".name").text(track.name);
@@ -65,7 +67,10 @@ $.widget("track.trackList", {
 				that._trigger("onEditTrackClicked", null, event.data);
 				return false;
 				});
-				
+				//Bedingung, damit Pfeil verschwindet nicht richtig formuliert
+				if(tracks.length < i){
+				this.element.find(".right_arrow").hide();
+				}
 				this.element.append(trackElement);
 				}
 			}
