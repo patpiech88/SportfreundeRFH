@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +20,6 @@
 <script src="./js/track.createdialog.js" type="text/javascript"></script>
 <script src="./js/track.navigation.js" type="text/javascript"></script>
 <script src="./js/track.limitation.js" type="text/javascript"></script>
-
 </head>
 <body>
     <div id="wrapper">
@@ -26,18 +28,46 @@
 			
         </div>
         <div id="navigation">
-			<span>Willkommen auf der Seite der Sportfreunde RFH</span>
+			<div id="username"> <?php
+										if(isset($_SESSION["user"])){
+										$user = $_SESSION["user"];
+										echo "Hallo, $user";}
+										?>
+			</div>
 				<p>
-				<span class="menuentry"><a href="#" class="create_dialog">Lauf eintragen</a></span>
-				<span class="menuentry"><a href="#">Bestenliste</a></span>
-				<span class="menuentry"><a href="#" class="show_tracks">Streckenübersicht</a></span>
-				<span class="menuentry"><a href="#">Meine Daten</a></span>
-				<span class="menuentry"><a href="#">Meine Läufe</a></span>
+				<?php
+				if(isset($_SESSION["user"])){
+				echo "<span class=\"menuentry\"><a href=\"#\" class=\"create_dialog\">Lauf eintragen</a></span>";
+				echo "<span class=\"menuentry\"><a href=\"#\">Bestenliste</a></span>";
+				echo "<span class=\"menuentry\"><a href=\"#\" class=\"show_tracks\">Streckenübersicht</a></span>";
+				echo "<span class=\"menuentry\"><a href=\"#\">Meine Daten</a></span>";
+				echo "<span class=\"menuentry\"><a href=\"#\">Meine Läufe</a></span>";
+				}
+				?>
+				
 				</p>
         </div>
         <div id="contentliquid">
 			<div id="content">
 				<p>
+				<?php
+					if(!isset($_SESSION["user"]))
+					   {
+							echo "<form action=\"login.php\" method=\"post\">
+							   <p>Sie sind nicht eingeloggt!</p>
+							   <p>Bitte melden Sie sich an:</p>  
+								<label for=\"user\">Benutzer:</label>
+							  <p> <input type=\"text\" name=\"user\" id=\"user\" value=\"\" /></p>
+								<label for=\"pw\">Passwort</label>
+							  <p> <input type=\"password\" name=\"pw\" id=\"pw\" value=\"\" /></p>
+							  <p><input type=\"submit\" name=\"cancel\" value=\"Absenden\"/></p>
+
+							</form>";
+							
+					   }else{
+							echo "<p>Willkommen auf Sportfreunde RFH</p>";
+					   }
+					?> 
 						<table id="track_list">
 							<thead>
 								<tr class="table_head">
@@ -149,7 +179,6 @@
       <form>
         <table>
           <tr>
-            <td/>
             <td colspan="2"><span class="validation_message ui-state-error-text"></span></td>
           </tr>
           <tr>
@@ -185,7 +214,7 @@
         <div id="footer">
             <p>
 			<a href="/SportfreundeRFH/Quellcode/projekt/mobile/index.html">Mobile Version</a>
-			<a href="logout.php">Logout</a>
+			<a href="index.php" onclick="<?php	session_destroy();?>">Logout</a>
 			</p>
         </div>
     </div>
