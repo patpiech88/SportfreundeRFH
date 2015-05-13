@@ -50,44 +50,16 @@
 		
 		public function createTrack($track){
 			$result = new CreateTrackResult();	
-				if ($track->name == ""){
-					$result->status_code = self::INVALID_INPUT;
-					$result->validation_messages["name"] = "Bitte geben Sie einen Namen ein!";
-					return $result;
+			
+			foreach ($track as $element => $value){
+				if($element != "trackid" && $element != "url" && $element != "version"){
+					if (empty($value)){
+						$result->status_code = self::INVALID_INPUT;
+						$result->validation_messages["$element"] = "Bitte geben Sie einen Wert ein!";
+						return $result;
+					}
 				}
-				if ($track->distance == ""){
-					$result->status_code = self::INVALID_INPUT;
-					$result->validation_messages["distance"] = "Bitte geben Sie eine Distanz ein!";
-					return $result;
-				}
-				if ($track->location == ""){
-					$result->status_code = self::INVALID_INPUT;
-					$result->validation_messages["location"] = "Bitte geben Sie einen Ort ein!";
-					return $result;
-				}
-				if ($track->type == ""){
-					$result->status_code = self::INVALID_INPUT;
-					$result->validation_messages["type"] = "Bitte geben Sie einen Typ ein!";
-					return $result;
-				}
-				if ($track->difficulty == ""){
-					$result->status_code = self::INVALID_INPUT;
-					$result->validation_messages["difficulty"] = "Bitte geben Sie einen Schwierigkeitsgrad ein!";
-					return $result;
-				}
-				if ($track->time == ""){
-					$track->time = "";
-					$result->status_code = self::INVALID_INPUT;
-					$result->validation_messages["time"] = "Bitte geben Sie eine Zeit ein!";
-					return $result;
-				}
-				if ($track->description == ""){
-					$result->status_code = self::INVALID_INPUT;
-					$result->validation_messages["description"] = "Bitte geben Sie eine Beschreibung ein!";
-					return $result;
-				}
-				
-				
+			}
 			$verbindung = $this->connect();
 			$sql_statement = "INSERT INTO tracks SET ".
 							"name = '$track->name', ".

@@ -7,17 +7,28 @@ $.widget("track.editDialog", $.ui.dialog, {
 	},
 	
 	open: function(track){
+		
 			this._track = track;
 			this.element.find(".validation_message").empty();
 			this.element.find("#name_field").val(track.name);
-			this.element.find("#name_field").removeClass("ui-state-error");
 			this.element.find("#distance_field").val(track.distance);
 			this.element.find("#location_field").val(track.location);
 			this.element.find("#type_field").val(track.type);
 			this.element.find("#difficulty_field").val(track.difficulty);
 			this.element.find("#time_field").val(track.time);
 			this.element.find("#description_field").val(track.description);
+			this._resetError();
 			this._super();
+	},
+	
+	_resetError: function(){
+		this.element.find("#name_field").removeClass("ui-state-error");
+		this.element.find("#distance_field").removeClass("ui-state-error");
+		this.element.find("#location_field").removeClass("ui-state-error");
+		this.element.find("#type_field").removeClass("ui-state-error");
+		this.element.find("#difficulty_field").removeClass("ui-state-error");
+		this.element.find("#time_field").removeClass("ui-state-error");
+		this.element.find("#description_field").removeClass("ui-state-error");
 	},
 	
 	_create: function(){
@@ -32,6 +43,7 @@ $.widget("track.editDialog", $.ui.dialog, {
 			{
 				text: "OK",
 				click: function() {
+				that._resetError();
 				that._updateTrack();
 				}
 			}
@@ -64,9 +76,12 @@ $.widget("track.editDialog", $.ui.dialog, {
 						error: function(response) {
 							if(response.status == 400) {
 								var validationMessages = $.parseJSON(response.responseText);
-								if(validationMessages.name != null){
-								this.element.find(".validation_message").text(validationMessages.name);
-								this.element.find("#name_field").addClass("ui-state-error").focus();
+								
+								for (element in validationMessages){
+									if(validationMessages[element] != null){
+									this.element.find(".validation_message").text(validationMessages[element]);
+									this.element.find("#" + element + "_field").addClass("ui-state-error").focus();
+									}
 								}
 							}
 						},

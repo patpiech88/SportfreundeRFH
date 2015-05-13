@@ -1,0 +1,7 @@
+Error Message individualisieren (Variable in Messagetext)
+Zeitformat überprüfen
+Dropdown Schwierigkeitsgrad
+Trackdetails/Track eintragen schöner machen
+
+
+Pace in Mobiler Ansicht (Optional)
