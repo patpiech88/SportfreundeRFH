@@ -1,7 +1,8 @@
-Error Message individualisieren (Variable in Messagetext)
+Fehlermeldung stimmt nicht
 Zeitformat überprüfen
 Dropdown Schwierigkeitsgrad
 Trackdetails/Track eintragen schöner machen
 
 
 Pace in Mobiler Ansicht (Optional)
+Error Message individualisieren (Variable in Messagetext) (Optional)

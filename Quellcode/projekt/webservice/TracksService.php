@@ -9,7 +9,7 @@
 		const VERSION_OUTDATED = "VERSION_OUTDATED";
 		
 		public function connect(){
-			@$verbindung = new mysqli("localhost", "root", "", "sportfreunde");
+			@$verbindung = new mysqli("localhost1", "root", "", "sportfreunde");
 			if ($verbindung->connect_error != NULL){
 					return self::ERROR;
 				}
@@ -26,6 +26,9 @@
 			$verbindung = $this->connect();
 			$sql_statement = "SELECT name, distance, location, type, difficulty, trackid, version, TIME_FORMAT(time, '%H:%i:%s') as time, description FROM tracks WHERE trackid = $id";
 			$result_set = $verbindung->query($sql_statement);
+			if($result_set == FALSE){
+				return self::ERROR;
+			}
 			$track = $result_set->fetch_object("Track");
 			if ($track === NULL){
 					return self::NOTFOUND;
@@ -36,8 +39,12 @@
 		
 		public function readTracks(){		
 			$verbindung = $this->connect();
+			
 			$sql_statement = "SELECT name, distance, location, type, difficulty, trackid, version, TIME_FORMAT(time, '%H:%i:%s') as time, description FROM tracks";
 			$result_set = $verbindung->query($sql_statement);
+			if($result_set == FALSE){
+				return self::ERROR;
+			}
 			$tracks = array();
 			$track = $result_set->fetch_object("Track");
 			while($track != NULL){
@@ -83,7 +90,6 @@
 		public function deleteTrack($id){
 				$verbindung = $this->connect();
 				$sql_statement = "DELETE FROM tracks WHERE trackid = $id";
-				
 				$verbindung->query($sql_statement);
 				$verbindung->close();
 			}
