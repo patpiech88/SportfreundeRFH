@@ -48,24 +48,6 @@
 			return $tracks;	
 		}
 		
-		function checktime($time) {
-			$timearray = preg_split(":", $time);
-			$hour = $timearray[0];
-			$min = $timearray[1];
-			$sec = $timearray[2];
-			
-			 if ($hour < 0 || $hour > 23 || !is_numeric($hour)) {
-				 return false;
-			 }
-			 if ($min < 0 || $min > 59 || !is_numeric($min)) {
-				 return false;
-			 }
-			 if ($sec < 0 || $sec > 59 || !is_numeric($sec)) {
-				 return false;
-			 }
-			return true;
-			}
-		
 		public function createTrack($track){
 			$result = new CreateTrackResult();	
 				if ($track->name == ""){
@@ -93,7 +75,7 @@
 					$result->validation_messages["difficulty"] = "Bitte geben Sie einen Schwierigkeitsgrad ein!";
 					return $result;
 				}
-				if ($track->time == "" || checktime($track->time) == false){
+				if ($track->time == ""){
 					$track->time = "";
 					$result->status_code = self::INVALID_INPUT;
 					$result->validation_messages["time"] = "Bitte geben Sie eine Zeit ein!";

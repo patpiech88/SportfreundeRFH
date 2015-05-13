@@ -65,7 +65,7 @@ session_start();
 							</form>";
 							
 					   }else{
-							echo "<p>Willkommen auf Sportfreunde RFH</p>";
+							echo "<p>Willkommen auf der Seite der Sportfreunde RFH</p>";
 					   }
 					?> 
 						<table id="track_list">
@@ -213,8 +213,13 @@ session_start();
 
         <div id="footer">
             <p>
-			<a href="/SportfreundeRFH/Quellcode/projekt/mobile/index.html">Mobile Version</a>
-			<a href="index.php" onclick="<?php	session_destroy();?>">Logout</a>
+			<?php
+				if(isset($_SESSION["user"])){
+				echo "<span><a href=\"/SportfreundeRFH/Quellcode/projekt/mobile/index.html\">Mobile Version</a></span>";
+				echo " ";
+				echo "<span><a href=\"index.php\" onclick=\"<?php	session_destroy();?>\">Logout</a></span>";
+				}
+				?>
 			</p>
         </div>
     </div>
