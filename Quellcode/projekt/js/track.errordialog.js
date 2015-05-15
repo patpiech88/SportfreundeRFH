@@ -16,7 +16,6 @@ $.widget("track.errorDialog", $.ui.dialog, {
 			text: "Schliessen",
 			click: function() {
 				that.close();
-				//alert("Klappt");
 			}
 		}
 		];
