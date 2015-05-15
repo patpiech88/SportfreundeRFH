@@ -9,7 +9,7 @@
 		const VERSION_OUTDATED = "VERSION_OUTDATED";
 		
 		public function connect(){
-			@$verbindung = new mysqli("localhost1", "root", "", "sportfreunde");
+			@$verbindung = new mysqli("localhost", "root", "", "sportfreunde");
 			if ($verbindung->connect_error != NULL){
 					return self::ERROR;
 				}

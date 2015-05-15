@@ -50,6 +50,8 @@ session_start();
         <div id="contentliquid">
 			<div id="content">
 				<p>
+				
+
 				<?php
 					if(!isset($_SESSION["user"]))
 					   {

@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "Sportfreunde RFH"
-AuthUserFile  /var/www/sportfreunde/.htpasswd
-Require User  sportfreunde

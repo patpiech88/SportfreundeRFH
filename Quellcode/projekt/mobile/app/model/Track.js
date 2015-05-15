@@ -21,10 +21,6 @@ Ext.define('Trackliste.model.Track', {
 				name:'time'
 			},
 			{
-				name:'pace',
-				defaultValue: 'Test'
-			},
-			{
 				name:'description'
 			}
 		]
