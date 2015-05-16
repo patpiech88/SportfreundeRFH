@@ -9,14 +9,14 @@
 		const VERSION_OUTDATED = "VERSION_OUTDATED";
 		
 		public function connect(){
-			@$verbindung = new mysqli("localhost", "root", "", "sportfreunde");
+			$verbindung = new mysqli("localhost", "root", "", "sportfreunde");
 			if ($verbindung->connect_error != NULL){
-					return self::ERROR;
+					return false;
 				}
 			$verbindung->set_charset("utf8");
 			if($verbindung == FALSE){
 				$verbindung->close();
-				return self::ERROR;
+				return false;
 			}
 			return $verbindung;
 			}
@@ -24,6 +24,9 @@
 		
 		public function readTrack($id){		
 			$verbindung = $this->connect();
+			if (!$verbindung){
+					return self::ERROR;
+				}
 			$sql_statement = "SELECT name, distance, location, type, difficulty, trackid, version, TIME_FORMAT(time, '%H:%i:%s') as time, description FROM tracks WHERE trackid = $id";
 			$result_set = $verbindung->query($sql_statement);
 			if($result_set == FALSE){
@@ -38,10 +41,10 @@
 		}
 		
 		public function readTracks(){		
-			$verbindung = $this->connect();
-			if($verbindung->connect_error != NULL){
-				return self::ERROR;
-			}			
+			$verbindung = $this->connect();	
+			if (!$verbindung){
+					return self::ERROR;
+				}
 			$sql_statement = "SELECT name, distance, location, type, difficulty, trackid, version, TIME_FORMAT(time, '%H:%i:%s') as time, description FROM tracks";
 			$result_set = $verbindung->query($sql_statement);
 			if($result_set == FALSE){
@@ -49,6 +52,9 @@
 			}
 			$tracks = array();
 			$track = $result_set->fetch_object("Track");
+			if ($track === NULL){
+					return self::NOTFOUND;
+				}
 			while($track != NULL){
 					$tracks[] = $track;
 					$track = $result_set->fetch_object("Track");
@@ -70,6 +76,9 @@
 				}
 			}
 			$verbindung = $this->connect();
+			if (!$verbindung){
+					return self::ERROR;
+				}
 			$sql_statement = "INSERT INTO tracks SET ".
 							"name = '$track->name', ".
 							"distance = '$track->distance', ".
@@ -81,6 +90,10 @@
 							"version = 1";
 			
 			$verbindung->query($sql_statement);
+			if($verbindung == FALSE){
+				return self::ERROR;
+			}
+			
 			$id = $verbindung->insert_id;
 			$verbindung->close();
 			$result->status_code = self::OK;
@@ -91,6 +104,9 @@
 		
 		public function deleteTrack($id){
 				$verbindung = $this->connect();
+				if (!$verbindung){
+					return self::ERROR;
+				}
 				$sql_statement = "DELETE FROM tracks WHERE trackid = $id";
 				$verbindung->query($sql_statement);
 				$verbindung->close();
@@ -99,6 +115,9 @@
 		public function updateTrack($track){
 			
 				$verbindung = $this->connect();
+				if (!$verbindung){
+					return self::ERROR;
+				}
 				$sql_statement = "UPDATE tracks SET ".
 								"name = '$track->name', ".
 								"distance = '$track->distance', ".
@@ -110,6 +129,9 @@
 								"version = version + 1 ".
 								"WHERE trackid = $track->trackid AND version = $track->version";
 				$verbindung->query($sql_statement);
+				if($verbindung == FALSE){
+				return self::ERROR;
+				}
 				$affected_rows = $verbindung->affected_rows;
 				
 				if ($affected_rows == 0){

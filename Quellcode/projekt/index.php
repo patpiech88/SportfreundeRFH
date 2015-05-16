@@ -219,9 +219,10 @@ session_start();
 				if(isset($_SESSION["user"])){
 				echo "<span><a href=\"/SportfreundeRFH/Quellcode/projekt/mobile/index.html\">Mobile Version</a></span>";
 				echo " ";
-				echo "<span><a href=\"index.php\" onclick=\"<?php	session_destroy();?>\">Logout</a></span>";
 				}
-				?>
+			?>
+			<span><a href="index.php" onclick="<?php session_destroy(); ?>">Logout</a></span>
+			
 			</p>
         </div>
     </div>
