@@ -24,7 +24,7 @@ $(function() {
 	
 	$("#navigation").navigation({
 		onShowTracksClicked: function(){
-			$("#track_list").trackList("home").trackList("reload");
+			$("#track_list").trackList("home").trackList("reload", limit);
 			$("#track_list").show();
 			$("#track_details").hide();
 		},
@@ -76,19 +76,19 @@ $(function() {
 			limit = 10;
 			$("#track_list").trackList("reload", limit);
 		},
-		onFifteenClicked: function(){
+		onTwentyClicked: function(){
 			limit = 20;
 			$("#track_list").trackList("reload", limit);
 		},
-		onTwentyClicked: function(){
+		onThirtyClicked: function(){
 			limit = 30;
 			$("#track_list").trackList("reload", limit);
 		},
-		onTwentyfiveClicked: function(){
+		onFiftyClicked: function(){
 			limit = 50;
 			$("#track_list").trackList("reload", limit);
 		},
-		onThirtyClicked: function(){
+		onHundredClicked: function(){
 			limit = 100;
 			$("#track_list").trackList("reload", limit);
 		},

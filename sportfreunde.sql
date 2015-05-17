@@ -1285,7 +1285,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`User-ID`, `LastName`, `FirstName`, `Gender`, `Birthdate`, `Location`, `AboutMe`, `Association`, `user`, `pw`) VALUES
-(1, '', '', '', '0000-00-00', '', '', '', 'test', 'test'),
+(1, '', '', '', '0000-00-00', '', '', '', 'dozent', '123'),
 (2, '', 'Patrick', 'männlich', '1988-12-21', 'Köln', 'Das bin ich', 'Sportfreunde RFH', 'patrick', 'abc'),
 (3, '', 'Thorsten', 'männlich', '1983-04-29', 'Köln', 'Schnell', 'Sportfreunde RFH', 'thorsten', '123'),
 (4, '', 'Reinhard', 'männlich', '1966-01-11', 'Köln', 'Ich laufe gern', 'Sportfreunde RFH', 'reinhard', '234'),

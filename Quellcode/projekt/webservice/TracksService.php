@@ -9,6 +9,7 @@
 		const VERSION_OUTDATED = "VERSION_OUTDATED";
 		
 		public function connect(){
+			//Falls nötig hier MySQL Login Daten anpassen
 			$verbindung = new mysqli("localhost", "root", "", "sportfreunde");
 			if ($verbindung->connect_error != NULL){
 					return false;

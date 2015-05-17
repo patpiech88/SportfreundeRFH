@@ -97,10 +97,10 @@ session_start();
 								<tr id="list_limit" class="list_limit">
 									<td id="limit" colspan="5">Einträge pro Seite:
 										<a class="ten" href="#">10</a>
-										<a class="fifteen" href="#">20</a>
-										<a class="twenty" href="#">30</a>
-										<a class="twentyfive" href="#">50</a>
-										<a class="thirty" href="#">100</a>
+										<a class="twenty" href="#">20</a>
+										<a class="thirty" href="#">30</a>
+										<a class="fifty" href="#">50</a>
+										<a class="hundred" href="#">100</a>
 									</td>
 									<td colspan="3" id="arrows">
 										<a class="left_arrow" href="#"><- Zurück</a>

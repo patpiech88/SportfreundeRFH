@@ -6,20 +6,20 @@ $.widget("track.listLimit", {
 			that._trigger("onTenClicked");
 			return false;
 		});
-		this.element.find(".fifteen").click(function(){
-			that._trigger("onFifteenClicked");
-			return false;
-		});
 		this.element.find(".twenty").click(function(){
 			that._trigger("onTwentyClicked");
 			return false;
 		});
-		this.element.find(".twentyfive").click(function(){
-			that._trigger("onTwentyfiveClicked");
-			return false;
-		});
 		this.element.find(".thirty").click(function(){
 			that._trigger("onThirtyClicked");
+			return false;
+		});
+		this.element.find(".fifty").click(function(){
+			that._trigger("onFiftyClicked");
+			return false;
+		});
+		this.element.find(".hundred").click(function(){
+			that._trigger("onHundredClicked");
 			return false;
 		});
 		this.element.find(".left_arrow").click(function(){
