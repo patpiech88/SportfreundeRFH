@@ -10,7 +10,7 @@ $.widget("track.createDialog", $.ui.dialog, {
 			
 			this.element.find(".validation_message").empty();
 			this.element.find("#name_field").val("");
-			this.element.find("#distance_field").val("");
+			this.element.find("#distance_field").val("00.00");
 			this.element.find("#location_field").val("");
 			this.element.find("#type_field").val("");
 			this.element.find("#difficulty_field").val("");
