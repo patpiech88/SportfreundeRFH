@@ -46,7 +46,7 @@
 			if (!$verbindung){
 					return self::ERROR;
 				}
-			$sql_statement = "SELECT name, distance, location, type, difficulty, trackid, version, TIME_FORMAT(time, '%H:%i:%s') as time, description FROM tracks";
+			$sql_statement = "SELECT name, distance, location, type, difficulty, trackid, version, TIME_FORMAT(time, '%H:%i:%s') as time, description FROM tracks ORDER BY trackid DESC";
 			$result_set = $verbindung->query($sql_statement);
 			if($result_set == FALSE){
 				return self::ERROR;
@@ -133,6 +133,7 @@
 				if($verbindung == FALSE){
 				return self::ERROR;
 				}
+				
 				$affected_rows = $verbindung->affected_rows;
 				
 				if ($affected_rows == 0){

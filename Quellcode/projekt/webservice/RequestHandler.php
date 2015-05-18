@@ -1,4 +1,5 @@
 <?php
+
 	require "Track.php";
 	require "TracksService.php";
 	require "GetTrackCommand.php";
@@ -18,7 +19,6 @@
 				   parse_str(file_get_contents("php://input"), $body_parameters);
 				   $request = $request + $body_parameters;
 		
-				
 					foreach ($request as $element => $value){
 						if($element != "trackid" && $element != "url" && $element != "version"){
 						   if (empty($value)){

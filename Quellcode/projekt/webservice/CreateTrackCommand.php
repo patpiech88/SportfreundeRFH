@@ -13,6 +13,7 @@
 			$track->description = $request["description"];
 			$track_service = new TracksService();
 			$result = $track_service->createTrack($track);
+			
 			if ($result->status_code == TracksService::INVALID_INPUT){
 				http_response_code(400);
 				return $result->validation_messages;

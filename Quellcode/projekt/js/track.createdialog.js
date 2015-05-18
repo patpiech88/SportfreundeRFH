@@ -45,6 +45,7 @@ $.widget("track.createDialog", $.ui.dialog, {
 			{
 				text: "OK",
 				click: function() {
+					//that._checkTime();
 					that._createTrack();
 					that._resetError();
 				}
@@ -53,6 +54,12 @@ $.widget("track.createDialog", $.ui.dialog, {
 		];
 		this._super();
 	},
+	/*Evtl noch implementieren
+	_checkTime: function(){
+		if(this.element.find("#time_field").value != h":"m":"s){
+			alert("Test");
+		}
+	},*/
 	
 	_createTrack: function() {
 		

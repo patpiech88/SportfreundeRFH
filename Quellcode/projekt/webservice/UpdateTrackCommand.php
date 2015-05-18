@@ -14,8 +14,10 @@
 			$track->time = $request["time"];
 			$track->description = $request["description"];
 			$track->version = $request_headers["If-Match"];
+			
 			$track_service = new TracksService();
 			$result = $track_service->updateTrack($track);
+			
 			if($result == TracksService::VERSION_OUTDATED){
 					http_response_code(412);
 					return;
@@ -27,6 +29,4 @@
 			return $result;
 		}
 	}
-
-
 ?>
