@@ -14,7 +14,7 @@ $.widget("track.createDialog", $.ui.dialog, {
 			this.element.find("#location_field").val("");
 			this.element.find("#type_field").val("");
 			this.element.find("#difficulty_field").val("");
-			this.element.find("#time_field").val("");
+			this.element.find("#time_field").val("00:00:00");
 			this.element.find("#description_field").val("");
 			this._resetError();
 			this._super();
@@ -45,7 +45,6 @@ $.widget("track.createDialog", $.ui.dialog, {
 			{
 				text: "OK",
 				click: function() {
-					//that._checkTime();
 					that._createTrack();
 					that._resetError();
 				}
@@ -54,12 +53,6 @@ $.widget("track.createDialog", $.ui.dialog, {
 		];
 		this._super();
 	},
-	/*Evtl noch implementieren
-	_checkTime: function(){
-		if(this.element.find("#time_field").value != h":"m":"s){
-			alert("Test");
-		}
-	},*/
 	
 	_createTrack: function() {
 		
@@ -83,6 +76,7 @@ $.widget("track.createDialog", $.ui.dialog, {
 							this._trigger("onTrackCreated");
 						},
 						error: function(response) {
+							
 							if(response.status == 400) {
 								var validationMessages = $.parseJSON(response.responseText);
 								
