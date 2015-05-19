@@ -29,7 +29,9 @@
 					return self::ERROR;
 				}
 			$sql_statement = "SELECT name, distance, location, type, difficulty, trackid, version, TIME_FORMAT(time, '%H:%i:%s') as time, description FROM tracks WHERE trackid = $id";
+			
 			$result_set = $verbindung->query($sql_statement);
+			
 			if($result_set == FALSE){
 				return self::ERROR;
 			}
