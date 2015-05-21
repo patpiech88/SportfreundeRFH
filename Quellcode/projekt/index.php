@@ -60,7 +60,7 @@ session_start();
 							   <p>Bitte melden Sie sich an:</p>  
 								<label for=\"user\">Benutzer:</label>
 							  <p> <input type=\"text\" name=\"user\" id=\"user\" value=\"\" /></p>
-								<label for=\"pw\">Passwort</label>
+								<label for=\"pw\">Passwort:</label>
 							  <p> <input type=\"password\" name=\"pw\" id=\"pw\" value=\"\" /></p>
 							  <p><input type=\"submit\" name=\"cancel\" value=\"Absenden\"/></p>
 
